@@ -3,9 +3,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/styles/globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-// import { StyledRoot } from "@/styles/StyledRoot";
 import RTLProvider from "@/styles/rtlProvider";
-import { ThemeProvider } from "@/utils/context/ThemeContext"; // Import your ThemeProvider
+import { ThemeProvider } from "@/utils/context/ThemeContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,6 +15,12 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+const yekan = localFont({
+  src: "./fonts/Far_Yekan.ttf",
+  variable: "--font-yekan",
+  weight: "100 200 300 400 500 600 700 800 900",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${yekan.variable} ${geistSans.variable} ${geistMono.variable}`}
+      >
         <AppRouterCacheProvider>
           <ThemeProvider>
             <RTLProvider>{children}</RTLProvider>

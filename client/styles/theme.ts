@@ -1,11 +1,11 @@
 "use client";
-import { Roboto } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
+import localFont from "next/font/local";
 
-const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
+const yekan = localFont({
+  src: "./../app/fonts/Far_Yekan.ttf",
+  variable: "--font-yekan",
+  weight: "100 200 300 400 500 600 700 800 900",
 });
 
 const commonColors = {
@@ -32,7 +32,7 @@ const lightTheme = createTheme({
     error: { main: "#E63946" },
   },
   typography: {
-    fontFamily: roboto.style.fontFamily,
+    fontFamily: yekan.style.fontFamily,
     h1: { color: commonColors.charcoalGray },
     body1: { color: commonColors.charcoalGray },
     button: { color: "#FFFFFF" },
@@ -52,7 +52,7 @@ const darkTheme = createTheme({
     error: { main: "#E63946" },
   },
   typography: {
-    fontFamily: roboto.style.fontFamily,
+    fontFamily: yekan.style.fontFamily,
     h1: { color: commonColors.warmWhite },
     body1: { color: commonColors.warmWhite },
     button: { color: "#FFFFFF" },
