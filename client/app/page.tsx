@@ -1,3 +1,4 @@
+import ThemeToggle from "@/components/themeChanger";
 import { Box, TextField } from "@mui/material";
 
 function page() {
@@ -13,6 +14,7 @@ function page() {
           }}
         >
           <TextField label={"hi"} dir="rtl" />
+          <ThemeToggle />
         </Box>
       </div>
     </>

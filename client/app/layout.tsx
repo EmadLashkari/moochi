@@ -1,9 +1,12 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/styles/globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import { StyledRoot } from "@/styles/StyledRoot";
+// import { StyledRoot } from "@/styles/StyledRoot";
 import RTLProvider from "@/styles/rtlProvider";
+import { ThemeProvider } from "@/utils/context/ThemeContext"; // Import your ThemeProvider
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -29,9 +32,9 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <AppRouterCacheProvider>
-          <StyledRoot>
+          <ThemeProvider>
             <RTLProvider>{children}</RTLProvider>
-          </StyledRoot>
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

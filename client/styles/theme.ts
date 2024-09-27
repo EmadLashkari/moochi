@@ -16,63 +16,47 @@ const commonColors = {
   richGreen: "#2A9D8F",
 };
 
-const theme = createTheme({
+const lightTheme = createTheme({
   direction: "rtl",
   palette: {
-    primary: {
-      main: commonColors.gold,
-    },
-    secondary: {
-      main: commonColors.darkOlive,
-    },
-    background: {
-      default: commonColors.warmWhite,
-      paper: "#FFFFFF",
-    },
+    mode: "light",
+    primary: { main: commonColors.gold },
+    secondary: { main: commonColors.darkOlive },
+    background: { default: commonColors.warmWhite, paper: "#FFFFFF" },
     text: {
       primary: commonColors.charcoalGray,
       secondary: commonColors.darkOlive,
     },
-    action: {
-      active: commonColors.gold,
-    },
-    success: {
-      main: commonColors.richGreen,
-    },
-    error: {
-      main: "#E63946",
-    },
+    action: { active: commonColors.gold },
+    success: { main: commonColors.richGreen },
+    error: { main: "#E63946" },
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
-    h1: {
-      color: commonColors.charcoalGray,
-    },
-    h2: {
-      color: commonColors.charcoalGray,
-    },
-    h3: {
-      color: commonColors.charcoalGray,
-    },
-    h4: {
-      color: commonColors.charcoalGray,
-    },
-    h5: {
-      color: commonColors.charcoalGray,
-    },
-    h6: {
-      color: commonColors.charcoalGray,
-    },
-    body1: {
-      color: commonColors.charcoalGray,
-    },
-    body2: {
-      color: commonColors.charcoalGray,
-    },
-    button: {
-      color: "#FFFFFF", // Button text color
-    },
+    h1: { color: commonColors.charcoalGray },
+    body1: { color: commonColors.charcoalGray },
+    button: { color: "#FFFFFF" },
   },
 });
 
-export default theme;
+const darkTheme = createTheme({
+  direction: "rtl",
+  palette: {
+    mode: "dark",
+    primary: { main: commonColors.gold },
+    secondary: { main: commonColors.darkOlive },
+    background: { default: commonColors.charcoalGray, paper: "#333333" },
+    text: { primary: commonColors.warmWhite, secondary: commonColors.gold },
+    action: { active: commonColors.gold },
+    success: { main: commonColors.richGreen },
+    error: { main: "#E63946" },
+  },
+  typography: {
+    fontFamily: roboto.style.fontFamily,
+    h1: { color: commonColors.warmWhite },
+    body1: { color: commonColors.warmWhite },
+    button: { color: "#FFFFFF" },
+  },
+});
+
+export { lightTheme, darkTheme };
