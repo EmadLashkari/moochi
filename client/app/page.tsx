@@ -1,9 +1,11 @@
+import PrimarySearchAppBar from "@/components/navbar";
 import ThemeToggle from "@/components/themeChanger";
 import { Box, TextField, Typography } from "@mui/material";
 
 function page() {
   return (
     <>
+      <PrimarySearchAppBar />
       <div dir="rtl">
         <Box
           sx={{

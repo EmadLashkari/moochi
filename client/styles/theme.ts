@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material/styles";
 import localFont from "next/font/local";
 
 const yekan = localFont({
-  src: "./../app/fonts/Far_Yekan.ttf",
+  src: "./../public/fonts/Far_Yekan.ttf",
   variable: "--font-yekan",
   weight: "100 200 300 400 500 600 700 800 900",
 });
