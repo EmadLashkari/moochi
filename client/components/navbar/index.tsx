@@ -1,9 +1,8 @@
 import { BoxRow } from "@/utils/custom";
-import { InputAdornment, TextField } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
 import Image from "next/image";
-import ThemeToggler from "../buttons/themeChanger";
-import MyDrawer from "../menu-drawer";
+import MyDrawer from "../MenuDrawer";
+import SearchBar from "../SearchBar";
+import { ThemeTogglerIconButton } from "../Buttons/ThemeChangerButton";
 
 function Navbar() {
   return (
@@ -17,32 +16,10 @@ function Navbar() {
           padding: { xs: 1, sm: 2 },
         }}
       >
-        <BoxRow>
+        <BoxRow sx={{ width: "100%", justifyContent: "flex-start" }}>
           <MyDrawer />
-        </BoxRow>
-        <ThemeToggler />
-        <BoxRow
-          sx={{
-            width: {
-              xs: "calc( 100% - 55px )",
-              sm: "calc( 100% - 180px )",
-              md: "calc( 100% - 350px )",
-            },
-          }}
-        >
-          <TextField
-            fullWidth
-            size="medium"
-            variant="outlined"
-            placeholder="دنبال چی میگردی؟"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end" sx={{ cursor: "pointer" }}>
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-          />
+          <ThemeTogglerIconButton />
+          <SearchBar />
         </BoxRow>
         {/* Logo */}
         <BoxRow

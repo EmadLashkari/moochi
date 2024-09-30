@@ -1,10 +1,10 @@
-import { Button, IconButton, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import AndroidIcon from "@mui/icons-material/Android";
 import { BoxRow } from "@/utils/custom";
 
 function InstallAppButton() {
   return (
-    <BoxRow>
+    <BoxRow sx={{ width: "100%" }}>
       <Button
         fullWidth
         size="large"
@@ -22,20 +22,6 @@ function InstallAppButton() {
           نصب برنامه
         </Typography>
       </Button>
-      <IconButton
-        size="small"
-        color="primary"
-        sx={{
-          bgcolor: "primary.main",
-          display: {
-            xs: "none",
-            sm: "flex",
-            md: "none",
-          },
-        }}
-      >
-        <AndroidIcon fontSize="large" sx={{ color: "#fff" }} />
-      </IconButton>
     </BoxRow>
   );
 }

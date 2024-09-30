@@ -1,16 +1,19 @@
+// next
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "@/styles/globals.css";
+// mui + styles
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import RTLProvider from "@/styles/rtlProvider";
 import { ThemeProvider } from "@/utils/context/ThemeContext";
 import { Box } from "@mui/material";
+import "@/styles/globals.css";
 
 const geistSans = localFont({
   src: "./../public/fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./../public/fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
