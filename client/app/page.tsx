@@ -1,25 +1,9 @@
-import PrimarySearchAppBar from "@/components/navbar";
-import ThemeToggle from "@/components/themeChanger";
-import { Box, TextField, Typography } from "@mui/material";
+import Navbar from "@/components/navbar";
 
 function page() {
   return (
     <>
-      <PrimarySearchAppBar />
-      <div dir="rtl">
-        <Box
-          sx={{
-            width: "100svw",
-            height: "100svh",
-            bgcolor: "background.default",
-            padding: 2,
-          }}
-        >
-          <TextField label={"hi"} dir="rtl" />
-          <Typography variant="h1">سلام</Typography>
-          <ThemeToggle />
-        </Box>
-      </div>
+      <Navbar />
     </>
   );
 }

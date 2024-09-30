@@ -4,14 +4,15 @@ import "@/styles/globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import RTLProvider from "@/styles/rtlProvider";
 import { ThemeProvider } from "@/utils/context/ThemeContext";
+import { Box } from "@mui/material";
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "./../public/fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "./../public/fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
@@ -39,7 +40,17 @@ export default function RootLayout({
       >
         <AppRouterCacheProvider>
           <ThemeProvider>
-            <RTLProvider>{children}</RTLProvider>
+            <RTLProvider>
+              <Box
+                sx={{
+                  minWidth: "100svw",
+                  minHeight: "100svh",
+                  bgcolor: "background.default",
+                }}
+              >
+                {children}
+              </Box>
+            </RTLProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

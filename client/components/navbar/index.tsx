@@ -1,239 +1,69 @@
-"use client";
-
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
-import Badge from "@mui/material/Badge";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
+import { BoxRow } from "@/utils/custom";
+import { InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import MoreIcon from "@mui/icons-material/MoreVert";
-import { alpha } from "@mui/material/styles";
-import { BoxRow, BoxColumn, BoxRowAround } from "@/utils/custom";
+import Image from "next/image";
+import ThemeToggler from "../buttons/themeChanger";
+import MyDrawer from "../menu-drawer";
 
-export default function PrimarySearchAppBar() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    React.useState<null | HTMLElement>(null);
-
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const menuId = "primary-search-account-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
-
-  const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
-
+function Navbar() {
   return (
-    <BoxColumn sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            MUI
-          </Typography>
-          <BoxRow
-            sx={{
-              position: "relative",
-              borderRadius: 1,
-              backgroundColor: (theme) =>
-                alpha(theme.palette.common.white, 0.15),
-              "&:hover": {
-                backgroundColor: (theme) =>
-                  alpha(theme.palette.common.white, 0.25),
-              },
-              marginRight: 2,
-              marginLeft: { xs: 0, sm: 3 },
-              width: { xs: "100%", sm: "auto" },
+    <>
+      <BoxRow
+        sx={{
+          width: "100vw",
+          height: "70px",
+          bgcolor: "background.default",
+          boxShadow: "0 0 3px 0 rgba(0, 0, 0, 0.45)",
+          padding: { xs: 1, sm: 2 },
+        }}
+      >
+        <BoxRow>
+          <MyDrawer />
+        </BoxRow>
+        <ThemeToggler />
+        <BoxRow
+          sx={{
+            width: {
+              xs: "calc( 100% - 55px )",
+              sm: "calc( 100% - 180px )",
+              md: "calc( 100% - 350px )",
+            },
+          }}
+        >
+          <TextField
+            fullWidth
+            size="medium"
+            variant="outlined"
+            placeholder="دنبال چی میگردی؟"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end" sx={{ cursor: "pointer" }}>
+                  <SearchIcon />
+                </InputAdornment>
+              ),
             }}
-          >
-            <BoxRow
-              sx={{
-                padding: (theme) => theme.spacing(0, 2),
-                height: "100%",
-                position: "absolute",
-                pointerEvents: "none",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <SearchIcon />
-            </BoxRow>
-            <InputBase
-              placeholder="Search…"
-              sx={{
-                color: "inherit",
-                padding: 1,
-                paddingLeft: (theme) => `calc(1em + ${theme.spacing(4)})`,
-                width: "100%",
-                transition: (theme) => theme.transitions.create("width"),
-                // width: { md: "20ch" },
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
-          </BoxRow>
-          <BoxRowAround sx={{ flexGrow: 1 }} />
-          <BoxRow
-            sx={{
-              display: { xs: "none", md: "flex" },
-            }}
-          >
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </BoxRow>
-          <BoxRowAround
-            sx={{
-              display: { xs: "flex", md: "none" },
-            }}
-          >
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </BoxRowAround>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-    </BoxColumn>
+          />
+        </BoxRow>
+        {/* Logo */}
+        <BoxRow
+          sx={{
+            display: {
+              xs: "none",
+              sm: "flex",
+            },
+          }}
+        >
+          <Image
+            width={150}
+            height={200}
+            style={{ width: "150px", height: "100%" }}
+            src="/images/Moochi_Logo.png"
+            alt=""
+          />
+        </BoxRow>
+      </BoxRow>
+    </>
   );
 }
+
+export default Navbar;
