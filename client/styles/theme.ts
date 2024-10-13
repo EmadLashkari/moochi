@@ -34,8 +34,18 @@ const lightTheme = createTheme({
   typography: {
     fontFamily: yekan.style.fontFamily,
     h1: { color: commonColors.charcoalGray },
+    h2: { color: commonColors.charcoalGray },
+    h3: { color: commonColors.charcoalGray },
+    h4: { color: commonColors.charcoalGray },
+    h5: { color: commonColors.charcoalGray },
+    h6: { color: commonColors.charcoalGray },
+    subtitle1: { color: commonColors.charcoalGray },
+    subtitle2: { color: commonColors.charcoalGray },
     body1: { color: commonColors.charcoalGray },
+    body2: { color: commonColors.charcoalGray },
     button: { color: "#FFFFFF" },
+    caption: { color: commonColors.charcoalGray },
+    overline: { color: commonColors.charcoalGray },
   },
 });
 
@@ -54,8 +64,18 @@ const darkTheme = createTheme({
   typography: {
     fontFamily: yekan.style.fontFamily,
     h1: { color: commonColors.warmWhite },
+    h2: { color: commonColors.warmWhite },
+    h3: { color: commonColors.warmWhite },
+    h4: { color: commonColors.warmWhite },
+    h5: { color: commonColors.warmWhite },
+    h6: { color: commonColors.warmWhite },
+    subtitle1: { color: commonColors.warmWhite },
+    subtitle2: { color: commonColors.warmWhite },
     body1: { color: commonColors.warmWhite },
+    body2: { color: commonColors.warmWhite },
     button: { color: "#FFFFFF" },
+    caption: { color: commonColors.warmWhite },
+    overline: { color: commonColors.warmWhite },
   },
 });
 

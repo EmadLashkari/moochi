@@ -1,4 +1,5 @@
 import Banner from "@/components/Banner";
+import ElectSec from "@/components/Elect/ElectSec";
 import Navbar from "@/components/Navbar";
 
 function page() {
@@ -6,6 +7,7 @@ function page() {
     <>
       <Navbar />
       <Banner />
+      <ElectSec />
     </>
   );
 }

@@ -12,7 +12,7 @@ const boxShadowStyle = {
 const heightConfig = {
   grid1: { xs: 1 / 6, sm: 2 / 3 },
   grid2: { xs: "calc(33.3% + 16.25px)", sm: 2 / 3 },
-  grid3: { xs: 1 / 6, sm: 1 / 3 },
+  grid3: { xs: 1 / 6, sm: "calc(33.3%)" },
 };
 
 export default function Banner() {
@@ -21,13 +21,21 @@ export default function Banner() {
       sx={{
         flexGrow: 1,
         height: {
-          xs: "calc(100svh - 118px)",
-          sm: "calc(100svh - 86px)",
+          xs: "calc(100svh - 70px)",
         },
         padding: { xs: 1, sm: 2 },
       }}
     >
-      <Grid container spacing={{ xs: 1, sm: 2 }} sx={{ height: "100%" }}>
+      <Grid
+        container
+        spacing={{ xs: 1, sm: 2 }}
+        sx={{
+          height: {
+            xs: "calc(100% - 48px)",
+            sm: "calc(100% - 16px)",
+          },
+        }}
+      >
         <Grid size={{ xs: 12, sm: 8 }} sx={{ height: heightConfig.grid1 }}>
           <Box sx={boxShadowStyle}></Box>
         </Grid>

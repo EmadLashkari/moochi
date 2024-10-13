@@ -5,7 +5,7 @@ import localFont from "next/font/local";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import RTLProvider from "@/styles/rtlProvider";
 import { ThemeProvider } from "@/utils/context/ThemeContext";
-import { Box } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 import "@/styles/globals.css";
 
 const geistSans = localFont({
@@ -43,17 +43,8 @@ export default function RootLayout({
       >
         <AppRouterCacheProvider>
           <ThemeProvider>
-            <RTLProvider>
-              <Box
-                sx={{
-                  minWidth: "100svw",
-                  minHeight: "100svh",
-                  bgcolor: "background.default",
-                }}
-              >
-                {children}
-              </Box>
-            </RTLProvider>
+            <CssBaseline />
+            <RTLProvider>{children}</RTLProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
