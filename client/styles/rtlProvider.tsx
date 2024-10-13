@@ -1,5 +1,3 @@
-// rtlProvider.tsx
-
 "use client";
 
 import { CacheProvider } from "@emotion/react";
