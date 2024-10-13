@@ -10,13 +10,6 @@ function InstallAppButton() {
         size="large"
         variant="contained"
         endIcon={<AndroidIcon fontSize="inherit" sx={{ color: "#fff" }} />}
-        sx={{
-          display: {
-            xs: "none",
-            sm: "none",
-            md: "flex",
-          },
-        }}
       >
         <Typography variant="h6" sx={{ color: "#fff" }}>
           نصب برنامه
