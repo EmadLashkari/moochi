@@ -6,7 +6,7 @@ function ElectSec() {
     <>
       <BoxRow
         sx={{
-          width: "100svw",
+          width: "calc100svw",
           height: { xs: "1500px", md: "500px" },
           minHeight: { xs: "1500px", md: "500px" },
           p: 2,

@@ -33,7 +33,7 @@ export default function MyDrawer() {
 
   const DrawerList = (
     <Box
-      sx={{ width: { xs: 200, sm: 250 } }}
+      sx={{ width: { xs: 220, sm: 250 } }}
       role="presentation"
       onClick={toggleDrawer(false)}
     >
