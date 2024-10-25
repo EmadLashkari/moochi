@@ -18,6 +18,7 @@ function ElectItem() {
         width: "100%",
         cursor: "pointer",
         gap: 0,
+        bgcolor: "background.default",
       }}
     >
       <BoxRow sx={{ height: "100%", gap: 0 }}>

@@ -8,16 +8,24 @@ function ElectComp() {
     <BoxColumn
       sx={{
         height: "100%",
-        width: { xs: "100%", md: "calc(33% - 8px)" },
-        borderRadius: 1,
+        width: { xs: "100%", md: "calc(33% - 24px)" },
+        minWidth: { xs: "100%", md: "calc(33% - 24px)" },
+        borderRadius: 3,
         boxShadow: "0 0 3px 0 rgba(0, 0, 0, 0.45)",
         justifyContent: "space-between",
-        bgcolor: "background.default",
+        bgcolor: "primary.main",
         gap: "0px !important",
         userSelect: "none",
       }}
     >
-      <Box sx={{ width: "100%", height: 1 / 5 }}>
+      <Box
+        sx={{
+          width: "100%",
+          height: 1 / 5,
+          borderTopLeftRadius: "12px",
+          borderTopRightRadius: "12px",
+        }}
+      >
         {/* <Image
           width={200}
           height={200}
@@ -30,12 +38,21 @@ function ElectComp() {
           width={"100%"}
           height={"100%"}
           animation="wave"
+          sx={{ borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }}
         />
       </Box>
       <BoxRow sx={{ p: 1.5 }}>
-        <Typography variant="h6">منتخب</Typography>
-        <Button variant="contained" size="small">
-          <Typography variant="button">نمایش همه</Typography>
+        <Typography variant="h6" color="white">
+          منتخب
+        </Typography>
+        <Button
+          variant="contained"
+          size="small"
+          sx={{ bgcolor: "background.default" }}
+        >
+          <Typography variant="button" color="text.primary">
+            نمایش همه
+          </Typography>
         </Button>
       </BoxRow>
       <BoxColumn

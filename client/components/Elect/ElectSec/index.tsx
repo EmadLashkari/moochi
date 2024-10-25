@@ -6,17 +6,13 @@ function ElectSec() {
     <>
       <BoxRow
         sx={{
-          width: "calc100svw",
-          height: { xs: "1500px", md: "500px" },
-          minHeight: { xs: "1500px", md: "500px" },
-          p: 2,
-          gap: 2,
-          bgcolor: "primary.main",
-          flexDirection: {
-            xs: "column",
-            sm: "column",
-            md: "row",
-          },
+          width: "100svw",
+          minWidth: "100svw",
+          height: "564px",
+          minHeight: "564px",
+          p: 5,
+          gap: 5,
+          overflowX: { xs: "scroll", md: "unset" },
         }}
       >
         <ElectComp />
