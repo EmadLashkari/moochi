@@ -22,7 +22,9 @@ function ElectItem() {
       }}
     >
       <BoxRow sx={{ height: "100%", gap: 0 }}>
-        <Box sx={{ height: "100%", p: 1, width: "100px", borderRadius: 1 }}>
+        <Box
+          sx={{ height: "100px", padding: 1, width: "100px", borderRadius: 1 }}
+        >
           {/* <Image
           width={200}
           height={200}

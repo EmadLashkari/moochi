@@ -8,8 +8,9 @@ function ElectComp() {
     <BoxColumn
       sx={{
         height: "100%",
-        width: { xs: "100%", md: "calc(33% - 24px)" },
-        minWidth: { xs: "100%", md: "calc(33% - 24px)" },
+        minHeight: "100%",
+        width: "100%",
+        minWidth: "100%",
         borderRadius: 3,
         boxShadow: "0 0 3px 0 rgba(0, 0, 0, 0.45)",
         justifyContent: "space-between",
@@ -21,7 +22,8 @@ function ElectComp() {
       <Box
         sx={{
           width: "100%",
-          height: 1 / 5,
+          height: "17% !important",
+          minHeight: "17% !important",
           borderTopLeftRadius: "12px",
           borderTopRightRadius: "12px",
         }}

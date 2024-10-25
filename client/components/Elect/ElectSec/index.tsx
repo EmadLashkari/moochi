@@ -1,5 +1,12 @@
+"use client";
+
 import { BoxRow } from "@/utils/custom";
 import ElectComp from "../ElectComp";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 function ElectSec() {
   return (
@@ -8,16 +15,50 @@ function ElectSec() {
         sx={{
           width: "100svw",
           minWidth: "100svw",
-          height: "564px",
-          minHeight: "564px",
-          p: 5,
-          gap: 5,
-          overflowX: { xs: "scroll", md: "unset" },
+          height: "630px",
+          minHeight: "630px",
         }}
       >
-        <ElectComp />
-        <ElectComp />
-        <ElectComp />
+        <Swiper
+          loop={true}
+          spaceBetween={48}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={false}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper"
+          style={{
+            width: "100%",
+            height: "100%",
+            padding: 48,
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            850: {
+              slidesPerView: 2,
+            },
+            1300: {
+              slidesPerView: 3,
+            },
+          }}
+        >
+          <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>
+            <ElectComp />
+          </SwiperSlide>
+          <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>
+            <ElectComp />
+          </SwiperSlide>
+          <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>
+            <ElectComp />
+          </SwiperSlide>
+        </Swiper>
       </BoxRow>
     </>
   );

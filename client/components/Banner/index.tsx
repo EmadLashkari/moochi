@@ -1,3 +1,10 @@
+"use client";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 
@@ -5,6 +12,7 @@ import Grid from "@mui/material/Grid2";
 const boxShadowStyle = {
   boxShadow: "0 0 3px 0 rgba(0, 0, 0, 0.45)",
   height: "100%",
+  maxHeight: "100%",
   borderRadius: 1,
 };
 
@@ -14,6 +22,56 @@ const heightConfig = {
   grid2: { xs: "calc(33.3% + 16.25px)", sm: 2 / 3 },
   grid3: { xs: 1 / 6, sm: "calc(33.3%)" },
 };
+
+// Slide content for each Swiper
+const slideContent = ["hi 1", "hi 2", "hi 3", "hi 4", "hi 5", "hi 6"];
+const slideContentReverse = [...slideContent].reverse();
+console.log(slideContent);
+console.log(slideContentReverse);
+
+// Configurable Swiper component
+type SwiperConfigProps = {
+  direction?: "horizontal" | "vertical";
+  initialSlide: number;
+  className: string;
+  reverseDir: boolean;
+  content: Array<string>;
+};
+
+const ConfigurableSwiper: React.FC<SwiperConfigProps> = ({
+  direction = "horizontal",
+  initialSlide,
+  className,
+  reverseDir = true,
+  content,
+}) => (
+  <Swiper
+    slidesPerView={1}
+    initialSlide={initialSlide}
+    loop={true}
+    autoplay={{
+      delay: 3000,
+      disableOnInteraction: false,
+      reverseDirection: reverseDir,
+    }}
+    pagination={false}
+    navigation={false}
+    modules={[Autoplay, Pagination, Navigation]}
+    className={className}
+    style={{
+      width: "100%",
+      height: "100%",
+    }}
+    direction={direction}
+    autoHeight={direction === "vertical"}
+  >
+    {content.map((text, index) => (
+      <SwiperSlide key={index}>
+        <p>{text}</p>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+);
 
 export default function Banner() {
   return (
@@ -37,7 +95,14 @@ export default function Banner() {
         }}
       >
         <Grid size={{ xs: 12, sm: 8 }} sx={{ height: heightConfig.grid1 }}>
-          <Box sx={boxShadowStyle}></Box>
+          <Box sx={boxShadowStyle}>
+            <ConfigurableSwiper
+              initialSlide={0}
+              className="mySwiper0"
+              reverseDir={true}
+              content={slideContent}
+            />
+          </Box>
         </Grid>
 
         <Grid
@@ -47,22 +112,61 @@ export default function Banner() {
           direction="column"
           sx={{ height: heightConfig.grid2 }}
         >
-          {[...Array(2)].map((_, idx) => (
-            <Grid key={idx} size={12} sx={{ flex: 1 }}>
-              <Box sx={boxShadowStyle}></Box>
-            </Grid>
-          ))}
+          <Grid size={12} sx={{ flex: 1 }}>
+            <Box sx={boxShadowStyle}>
+              <ConfigurableSwiper
+                initialSlide={1}
+                direction="vertical"
+                className="mySwiper1"
+                reverseDir={true}
+                content={slideContent}
+              />
+            </Box>
+          </Grid>
+
+          <Grid size={12} sx={{ flex: 1 }}>
+            <Box sx={boxShadowStyle}>
+              <ConfigurableSwiper
+                initialSlide={2}
+                direction="vertical"
+                className="mySwiper2"
+                reverseDir={true}
+                content={slideContent}
+              />
+            </Box>
+          </Grid>
         </Grid>
 
-        {[...Array(3)].map((_, idx) => (
-          <Grid
-            key={idx}
-            size={{ xs: 12, sm: 4 }}
-            sx={{ height: heightConfig.grid3 }}
-          >
-            <Box sx={boxShadowStyle}></Box>
-          </Grid>
-        ))}
+        <Grid size={{ xs: 12, sm: 4 }} sx={{ height: heightConfig.grid3 }}>
+          <Box sx={boxShadowStyle}>
+            <ConfigurableSwiper
+              initialSlide={0}
+              className={`mySwiper5`}
+              reverseDir={false}
+              content={slideContentReverse}
+            />
+          </Box>
+        </Grid>
+        <Grid size={{ xs: 12, sm: 4 }} sx={{ height: heightConfig.grid3 }}>
+          <Box sx={boxShadowStyle}>
+            <ConfigurableSwiper
+              initialSlide={1}
+              className={`mySwiper4`}
+              reverseDir={false}
+              content={slideContentReverse}
+            />
+          </Box>
+        </Grid>
+        <Grid size={{ xs: 12, sm: 4 }} sx={{ height: heightConfig.grid3 }}>
+          <Box sx={boxShadowStyle}>
+            <ConfigurableSwiper
+              initialSlide={2}
+              className={`mySwiper3`}
+              reverseDir={false}
+              content={slideContentReverse}
+            />
+          </Box>
+        </Grid>
       </Grid>
     </Box>
   );
