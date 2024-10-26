@@ -29,7 +29,7 @@ function ElectSec() {
           pagination={{
             clickable: true,
           }}
-          navigation={false}
+          navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
           style={{

@@ -43,6 +43,12 @@ a:active {
   background-color: transparent;
 }
 
+.mySwiper {
+  --swiper-pagination-color: #c89b3c;
+  --swiper-navigation-color: #c89b3c;
+  --swiper-theme-color: #c89b3c;
+}
+
 /*
 
 BROWSER SCROLLBAR KITS
