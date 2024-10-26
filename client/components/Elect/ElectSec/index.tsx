@@ -29,14 +29,13 @@ function ElectSec() {
           pagination={{
             clickable: true,
           }}
-          navigation={true}
+          navigation={false}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
           style={{
             width: "100%",
             height: "100%",
-            padding: 48,
           }}
+          className="mySwiper mySwiperElect"
           breakpoints={{
             0: {
               slidesPerView: 1,

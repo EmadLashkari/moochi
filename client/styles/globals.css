@@ -49,6 +49,28 @@ a:active {
   --swiper-theme-color: #c89b3c;
 }
 
+.mySwiperElect {
+  padding: 44px !important;
+}
+
+@media screen and (max-width: 500px) {
+  .mySwiperElect {
+    padding: 44px 32px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .mySwiperElect {
+    padding: 40px 24px !important;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .mySwiperElect {
+    padding: 40px 18px !important;
+  }
+}
+
 /*
 
 BROWSER SCROLLBAR KITS

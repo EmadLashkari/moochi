@@ -12,7 +12,8 @@ function ElectItem() {
     <BoxRow
       sx={{
         height: 1 / 3,
-        minHeight: "100px",
+        minHeight: { xs: "80px", sm: "100px" },
+        maxHeight: { xs: "96px", sm: "116px" },
         borderRadius: 1,
         boxShadow: "0 0 2px 0 rgba(0, 0, 0, 0.45)",
         width: "100%",
@@ -23,7 +24,12 @@ function ElectItem() {
     >
       <BoxRow sx={{ height: "100%", gap: 0 }}>
         <Box
-          sx={{ height: "100px", padding: 1, width: "100px", borderRadius: 1 }}
+          sx={{
+            width: { xs: "80px", sm: "100px" },
+            height: { xs: "80px", sm: "100px" },
+            padding: 1,
+            borderRadius: 1,
+          }}
         >
           {/* <Image
           width={200}
@@ -55,7 +61,13 @@ function ElectItem() {
               تهران منطقه 7، شریعتی
             </Typography>
           </BoxRow>
-          <Rating name="read-only" value={2.4} readOnly precision={0.1} />
+          <Rating
+            name="read-only"
+            value={2.4}
+            readOnly
+            precision={0.1}
+            sx={{ fontSize: { xs: 20, sm: 25 } }}
+          />
         </BoxColumn>
       </BoxRow>
       <BoxRow>
