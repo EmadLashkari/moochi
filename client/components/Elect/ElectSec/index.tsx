@@ -15,8 +15,8 @@ function ElectSec() {
         sx={{
           width: "100svw",
           minWidth: "100svw",
-          height: "630px",
-          minHeight: "630px",
+          height: { xs: "548px", sm: "630px" },
+          minHeight: { xs: "548px", sm: "630px" },
         }}
       >
         <Swiper

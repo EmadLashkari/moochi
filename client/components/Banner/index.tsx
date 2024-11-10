@@ -2,7 +2,6 @@
 
 import { BoxColumn, BoxRow } from "@/utils/custom";
 import { Box, useMediaQuery } from "@mui/material";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -73,7 +72,7 @@ const Carousel: React.FC<CarouselProps> = ({
 }) => (
   <Swiper
     initialSlide={initialSlide}
-    loop={true}
+    loop={content.length > 2}
     autoplay={{
       delay: 5000,
       disableOnInteraction: false,

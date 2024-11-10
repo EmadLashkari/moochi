@@ -32,10 +32,10 @@ function Navbar() {
         >
           <Image
             width={150}
-            height={200}
-            style={{ width: "150px", height: "100%" }}
+            height={38}
             src="/images/Moochi_Logo.png"
-            alt=""
+            alt="MoochiLogo"
+            priority
           />
         </BoxRow>
       </BoxRow>
