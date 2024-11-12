@@ -11,12 +11,12 @@ import { SwiperOptions } from "swiper/types";
 import Image from "next/image";
 
 const slideContent = [
-  "/images/banner-img/banner-1.webp",
-  "/images/banner-img/banner-2.webp",
-  "/images/banner-img/banner-3.webp",
-  "/images/banner-img/banner-4.webp",
-  "/images/banner-img/banner-5.webp",
-  "/images/banner-img/banner-6.webp",
+  "/images/banner-img/Banner-1.webp",
+  "/images/banner-img/Banner-2.webp",
+  "/images/banner-img/Banner-3.webp",
+  "/images/banner-img/Banner-4.webp",
+  "/images/banner-img/Banner-5.webp",
+  "/images/banner-img/Banner-6.webp",
 ];
 
 const slidePerViewTopRight = {
