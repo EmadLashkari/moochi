@@ -8,8 +8,16 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { SwiperOptions } from "swiper/types";
+import Image from "next/image";
 
-const slideContent = ["hi 1", "hi 2", "hi 3", "hi 4", "hi 5", "hi 6"];
+const slideContent = [
+  "/images/banner-img/banner-1.webp",
+  "/images/banner-img/banner-2.webp",
+  "/images/banner-img/banner-3.webp",
+  "/images/banner-img/banner-4.webp",
+  "/images/banner-img/banner-5.webp",
+  "/images/banner-img/banner-6.webp",
+];
 
 const slidePerViewTopRight = {
   0: {
@@ -59,6 +67,7 @@ type CarouselProps = {
   slidePerView: slidePerViewConfig;
   widthX: string;
   heightX: string;
+  reverseDir?: true | false;
 };
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -69,13 +78,15 @@ const Carousel: React.FC<CarouselProps> = ({
   slidePerView,
   widthX,
   heightX,
+  reverseDir = false,
 }) => (
   <Swiper
     initialSlide={initialSlide}
-    loop={content.length > 2}
+    loop={content.length >= 3}
     autoplay={{
       delay: 5000,
       disableOnInteraction: false,
+      reverseDirection: reverseDir,
     }}
     pagination={false}
     navigation={false}
@@ -89,7 +100,7 @@ const Carousel: React.FC<CarouselProps> = ({
     breakpoints={slidePerView}
     spaceBetween={16}
   >
-    {content.map((text, index) => (
+    {content.map((url, index) => (
       <SwiperSlide
         key={index}
         style={{
@@ -98,7 +109,22 @@ const Carousel: React.FC<CarouselProps> = ({
           borderRadius: "4px",
         }}
       >
-        <Box sx={boxStyle}>{text}</Box>
+        <Box sx={boxStyle}>
+          <Image
+            width={20000}
+            height={25000}
+            src={url}
+            alt="enamad"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              borderRadius: "4px",
+            }}
+            priority
+            quality={100}
+          />
+        </Box>
       </SwiperSlide>
     ))}
   </Swiper>
@@ -112,6 +138,7 @@ function Banner() {
       sx={{
         width: "100svw",
         height: "calc(100svh - 70px)",
+        maxHeight: { xs: "932px", sm: "750px" },
         p: 2,
         gap: 2,
         bgcolor: "primary.main",

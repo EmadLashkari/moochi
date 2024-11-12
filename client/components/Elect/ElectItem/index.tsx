@@ -1,13 +1,18 @@
 import { BoxColumn, BoxRow } from "@/utils/custom";
-import { Box, IconButton, Rating, Skeleton, Typography } from "@mui/material";
+import { Box, IconButton, Rating, Typography } from "@mui/material";
 import {
   Place as PlaceIcon,
   Percent as PercentIcon,
   WorkspacePremium as WorkspacePremiumIcon,
   LocalOffer as LocalOfferIcon,
 } from "@mui/icons-material";
+import { BarberShop } from "@/utils/Data";
+import Image from "next/image";
+interface ElectItemProps {
+  barberShop: BarberShop;
+}
 
-function ElectItem() {
+function ElectItem({ barberShop }: ElectItemProps) {
   return (
     <BoxRow
       sx={{
@@ -31,26 +36,27 @@ function ElectItem() {
             borderRadius: 1,
           }}
         >
-          {/* <Image
-          width={200}
-          height={200}
-          src="/images/electSec.jpg"
-          style={{width:'100%',height:'100%'}}
-          alt="image"
-            /> */}
-          <Skeleton
+          <Image
+            width={1000}
+            height={1000}
+            src={barberShop.imgUrl}
+            style={{ width: "100%", height: "100%", borderRadius: 1 }}
+            alt={barberShop.name}
+            priority
+          />
+          {/* <Skeleton
             variant="rectangular"
             width={"100%"}
             height={"100%"}
             animation="wave"
             sx={{ borderRadius: 1 }}
-          />
+          /> */}
         </Box>
         <BoxColumn
           sx={{ gap: 0, height: "100%", justifyContent: "space-evenly" }}
         >
           <Typography variant="h6" lineHeight={1.2}>
-            ستاره ربیعی
+            {barberShop.name}
           </Typography>
           <BoxRow sx={{ gap: 0.5, alignItems: "flex-start" }}>
             <PlaceIcon
@@ -58,12 +64,12 @@ function ElectItem() {
               sx={{ color: "grey", lineHeight: 1 }}
             />
             <Typography variant="body2" sx={{ lineHeight: 1, color: "grey" }}>
-              تهران منطقه 7، شریعتی
+              {barberShop.address}{" "}
             </Typography>
           </BoxRow>
           <Rating
             name="read-only"
-            value={2.4}
+            value={barberShop.rating}
             readOnly
             precision={0.1}
             sx={{ fontSize: { xs: 20, sm: 25 } }}

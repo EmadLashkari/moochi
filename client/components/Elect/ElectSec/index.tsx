@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { top3Barbershops } from "@/utils/Data";
 
 function ElectSec() {
   return (
@@ -49,13 +50,13 @@ function ElectSec() {
           }}
         >
           <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>
-            <ElectComp />
+            <ElectComp data={top3Barbershops} />
           </SwiperSlide>
           <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>
-            <ElectComp />
+            <ElectComp data={top3Barbershops} />
           </SwiperSlide>
           <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>
-            <ElectComp />
+            <ElectComp data={top3Barbershops} />
           </SwiperSlide>
         </Swiper>
       </BoxRow>

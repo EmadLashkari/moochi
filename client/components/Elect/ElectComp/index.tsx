@@ -1,9 +1,13 @@
 import { BoxColumn, BoxRow } from "@/utils/custom";
-import { Box, Button, Skeleton, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import ElectItem from "../ElectItem";
-// import Image from "next/image";
+import { BarberShop } from "@/utils/Data";
+import Image from "next/image";
+interface ElectCompProps {
+  data: BarberShop[];
+}
 
-function ElectComp() {
+function ElectComp({ data }: ElectCompProps) {
   return (
     <BoxColumn
       sx={{
@@ -28,20 +32,27 @@ function ElectComp() {
           borderTopRightRadius: "12px",
         }}
       >
-        {/* <Image
-          width={200}
-          height={200}
-          src="/images/electSec.jpg"
-          style={{width:'100%',height:'100%'}}
-          alt="image"
-        /> */}
-        <Skeleton
+        <Image
+          width={1000}
+          height={1000}
+          src="/images/barber-banner-img.jpg"
+          style={{
+            width: "100%",
+            height: "100%",
+            borderTopLeftRadius: "12px",
+            borderTopRightRadius: "12px",
+            objectFit: "cover",
+          }}
+          alt="barber-banner-img"
+          priority
+        />
+        {/* <Skeleton
           variant="rectangular"
           width={"100%"}
           height={"100%"}
           animation="wave"
           sx={{ borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }}
-        />
+        /> */}
       </Box>
       <BoxRow sx={{ p: 1.5 }}>
         <Typography variant="h6" color="white">
@@ -60,12 +71,9 @@ function ElectComp() {
       <BoxColumn
         sx={{ height: "calc(100% - 129.6px)", p: 1.5, pt: 0, gap: 1.5 }}
       >
-        {/* Item  1 */}
-        <ElectItem />
-        {/* Item  2 */}
-        <ElectItem />
-        {/* Item  3 */}
-        <ElectItem />
+        {data.map((barberShop) => (
+          <ElectItem key={barberShop.id} barberShop={barberShop} />
+        ))}
       </BoxColumn>
     </BoxColumn>
   );
