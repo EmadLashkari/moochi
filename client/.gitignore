@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+/public/images/banner-img
+/public/images/barber-img
+/public/images/barber-banner-img.jpg
 
 # testing
 /coverage
