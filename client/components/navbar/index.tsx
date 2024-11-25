@@ -1,8 +1,9 @@
 import { BoxRow } from "@/utils/custom";
-import Image from "next/image";
+// import Image from "next/image";
 import MyDrawer from "../MenuDrawer";
 import SearchBar from "../SearchBar";
 import { ThemeTogglerIconButton } from "../Buttons/ThemeChangerButton";
+import { Typography } from "@mui/material";
 
 function Navbar() {
   return (
@@ -30,13 +31,24 @@ function Navbar() {
             },
           }}
         >
-          <Image
+          {/* <Image
             width={150}
             height={38}
             src="/images/Moochi_Logo.png"
             alt="MoochiLogo"
             priority
-          />
+          /> */}
+          <Typography
+            variant="h4"
+            sx={{
+              color: "primary.main",
+              fontWeight: "bolder",
+              letterSpacing: "2px",
+              textShadow: "2px 2px 3px rgba(0, 0, 0, 0.25)",
+            }}
+          >
+            MOOCHI
+          </Typography>
         </BoxRow>
       </BoxRow>
     </>
