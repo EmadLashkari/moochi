@@ -1,14 +1,14 @@
 "use client";
 
 import { BoxColumn, BoxRow } from "@/utils/custom";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, Skeleton, useMediaQuery } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { SwiperOptions } from "swiper/types";
-import Image from "next/image";
+// import Image from "next/image";
 
 const slideContent = [
   "/images/banner-img/Banner-1.webp",
@@ -110,7 +110,7 @@ const Carousel: React.FC<CarouselProps> = ({
         }}
       >
         <Box sx={boxStyle}>
-          <Image
+          {/* <Image
             width={20000}
             height={25000}
             src={url}
@@ -123,6 +123,13 @@ const Carousel: React.FC<CarouselProps> = ({
             }}
             priority
             quality={100}
+          /> */}
+          <Skeleton
+            variant="rectangular"
+            width={"100%"}
+            height={"100%"}
+            animation="wave"
+            sx={{ borderRadius: 1 }}
           />
         </Box>
       </SwiperSlide>

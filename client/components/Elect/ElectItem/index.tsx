@@ -1,5 +1,5 @@
 import { BoxColumn, BoxRow } from "@/utils/custom";
-import { Box, IconButton, Rating, Typography } from "@mui/material";
+import { Box, IconButton, Rating, Skeleton, Typography } from "@mui/material";
 import {
   Place as PlaceIcon,
   Percent as PercentIcon,
@@ -7,7 +7,7 @@ import {
   LocalOffer as LocalOfferIcon,
 } from "@mui/icons-material";
 import { BarberShop } from "@/utils/Data";
-import Image from "next/image";
+// import Image from "next/image";
 interface ElectItemProps {
   barberShop: BarberShop;
 }
@@ -36,21 +36,21 @@ function ElectItem({ barberShop }: ElectItemProps) {
             borderRadius: 1,
           }}
         >
-          <Image
+          {/* <Image
             width={1000}
             height={1000}
             src={barberShop.imgUrl}
             style={{ width: "100%", height: "100%", borderRadius: 1 }}
             alt={barberShop.name}
             priority
-          />
-          {/* <Skeleton
+          /> */}
+          <Skeleton
             variant="rectangular"
             width={"100%"}
             height={"100%"}
             animation="wave"
             sx={{ borderRadius: 1 }}
-          /> */}
+          />
         </Box>
         <BoxColumn
           sx={{ gap: 0, height: "100%", justifyContent: "space-evenly" }}
