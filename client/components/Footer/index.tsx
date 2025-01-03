@@ -51,7 +51,7 @@ const FooterTop = () => (
   <BoxColumn
     sx={{
       ...commonStyles.fullWidthHeight,
-      gap: 2,
+      gap: 1,
       p: { xs: 3, sm: 4 },
       paddingBottom: 0,
     }}
@@ -96,7 +96,6 @@ const FooterMiddle = () => (
       justifyContent: "flex-start",
       alignItems: { xs: "center", sm: "flex-start", md: "center" },
       "@media (max-width: 700px)": { alignItems: "center" },
-
       p: { xs: 3, md: 4 },
     }}
   >

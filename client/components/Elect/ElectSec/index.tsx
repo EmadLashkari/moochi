@@ -8,8 +8,56 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { top3Barbershops } from "@/utils/Data";
+import { useEffect, useState } from "react";
+
+const Carousel = () => (
+  <>
+    <Swiper
+      loop={true}
+      spaceBetween={48}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+      pagination={{
+        clickable: true,
+      }}
+      navigation={false}
+      modules={[Autoplay, Pagination, Navigation]}
+      style={{
+        width: "100%",
+        height: "100%",
+      }}
+      className="mySwiper mySwiperElect"
+      breakpoints={{
+        0: {
+          slidesPerView: 1,
+        },
+        850: {
+          slidesPerView: 2,
+        },
+        1300: {
+          slidesPerView: 3,
+        },
+      }}
+    >
+      <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>
+        <ElectComp data={top3Barbershops} />
+      </SwiperSlide>
+      <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>
+        <ElectComp data={top3Barbershops} />
+      </SwiperSlide>
+      <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>
+        <ElectComp data={top3Barbershops} />
+      </SwiperSlide>
+    </Swiper>
+  </>
+);
 
 function ElectSec() {
+  const [domLoaded, setDomLoaded] = useState(false);
+  useEffect(() => setDomLoaded(true), []);
+
   return (
     <>
       <BoxRow
@@ -20,45 +68,7 @@ function ElectSec() {
           minHeight: { xs: "548px", sm: "630px" },
         }}
       >
-        <Swiper
-          loop={true}
-          spaceBetween={48}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={false}
-          modules={[Autoplay, Pagination, Navigation]}
-          style={{
-            width: "100%",
-            height: "100%",
-          }}
-          className="mySwiper mySwiperElect"
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            850: {
-              slidesPerView: 2,
-            },
-            1300: {
-              slidesPerView: 3,
-            },
-          }}
-        >
-          <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>
-            <ElectComp data={top3Barbershops} />
-          </SwiperSlide>
-          <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>
-            <ElectComp data={top3Barbershops} />
-          </SwiperSlide>
-          <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>
-            <ElectComp data={top3Barbershops} />
-          </SwiperSlide>
-        </Swiper>
+        {domLoaded && <Carousel />}
       </BoxRow>
     </>
   );

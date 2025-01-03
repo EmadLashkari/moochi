@@ -1,22 +1,23 @@
 "use client";
 
 import { BoxColumn, BoxRow } from "@/utils/custom";
-import { Box, Skeleton, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { SwiperOptions } from "swiper/types";
-// import Image from "next/image";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const slideContent = [
-  "/images/banner-img/Banner-1.webp",
-  "/images/banner-img/Banner-2.webp",
-  "/images/banner-img/Banner-3.webp",
-  "/images/banner-img/Banner-4.webp",
-  "/images/banner-img/Banner-5.webp",
-  "/images/banner-img/Banner-6.webp",
+  "/images/Banner-2.webp",
+  "/images/Banner-2.webp",
+  "/images/Banner-2.webp",
+  "/images/Banner-2.webp",
+  "/images/Banner-2.webp",
+  "/images/Banner-2.webp",
 ];
 
 const slidePerViewTopRight = {
@@ -81,8 +82,9 @@ const Carousel: React.FC<CarouselProps> = ({
   reverseDir = false,
 }) => (
   <Swiper
+    allowTouchMove={false}
     initialSlide={initialSlide}
-    loop={content.length >= 3}
+    loop={true}
     autoplay={{
       delay: 5000,
       disableOnInteraction: false,
@@ -110,11 +112,11 @@ const Carousel: React.FC<CarouselProps> = ({
         }}
       >
         <Box sx={boxStyle}>
-          {/* <Image
-            width={20000}
-            height={25000}
+          <Image
+            width={1000}
+            height={1000}
             src={url}
-            alt="enamad"
+            alt={url}
             style={{
               width: "100%",
               height: "100%",
@@ -123,13 +125,6 @@ const Carousel: React.FC<CarouselProps> = ({
             }}
             priority
             quality={100}
-          /> */}
-          <Skeleton
-            variant="rectangular"
-            width={"100%"}
-            height={"100%"}
-            animation="wave"
-            sx={{ borderRadius: 1 }}
           />
         </Box>
       </SwiperSlide>
@@ -139,6 +134,8 @@ const Carousel: React.FC<CarouselProps> = ({
 
 function Banner() {
   const width850 = useMediaQuery("only screen and (max-width : 850px)");
+  const [domLoaded, setDomLoaded] = useState(false);
+  useEffect(() => setDomLoaded(true), []);
 
   return (
     <BoxColumn
@@ -146,6 +143,7 @@ function Banner() {
         width: "100svw",
         height: "calc(100svh - 70px)",
         maxHeight: { xs: "932px", sm: "750px" },
+        minHeight: "650px",
         p: 2,
         gap: 2,
         bgcolor: "primary.main",
@@ -214,15 +212,17 @@ function Banner() {
           gap: 2,
         }}
       >
-        <Carousel
-          direction={"horizontal"}
-          initialSlide={3}
-          className={"CarouselBottom"}
-          content={slideContent}
-          slidePerView={slidePerViewBottom}
-          widthX={"calc(33% - 8px)"}
-          heightX={"100%"}
-        />
+        {domLoaded && (
+          <Carousel
+            direction={"horizontal"}
+            initialSlide={3}
+            className={"CarouselBottom"}
+            content={slideContent}
+            slidePerView={slidePerViewBottom}
+            widthX={"calc(33% - 8px)"}
+            heightX={"100%"}
+          />
+        )}
       </BoxRow>
     </BoxColumn>
   );
