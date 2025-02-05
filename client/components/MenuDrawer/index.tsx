@@ -23,8 +23,11 @@ import {
 import { BoxRow } from "@/utils/custom";
 import InstallAppButton from "../Buttons/InstallAppButton";
 import { ThemeTogglerButton } from "../Buttons/ThemeChangerButton";
+import LoginModalButton from "../Buttons/LoginModalButton";
+import LoginModal from "../Auth/Modal";
 
 export default function MyDrawer() {
+  const [openLoginModal, setOpenLoginModal] = React.useState(false);
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -37,6 +40,16 @@ export default function MyDrawer() {
       role="presentation"
       onClick={toggleDrawer(false)}
     >
+      <List>
+        <ListItem>
+          <LoginModalButton onOpen={() => setOpenLoginModal(true)} />
+          <LoginModal
+            openLoginModal={openLoginModal}
+            onCloseLoginModal={() => setOpenLoginModal(false)}
+          />
+        </ListItem>
+      </List>
+      <Divider />
       <List>
         {[
           { text: "رزرو", icon: <EventSeatIcon /> },
