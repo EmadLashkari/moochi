@@ -31,14 +31,16 @@ function ElectItem({ barberShop }: ElectItemProps) {
         <Box
           sx={{
             width: { xs: "80px", sm: "100px" },
+            minWidth: { xs: "80px", sm: "100px" },
             height: { xs: "80px", sm: "100px" },
+            minHeight: { xs: "80px", sm: "100px" },
             padding: 1,
             borderRadius: 1,
           }}
         >
           <Image
-            width={1000}
-            height={1000}
+            width={300}
+            height={300}
             src={barberShop.imgUrl}
             style={{ width: "100%", height: "100%", borderRadius: 1 }}
             alt={barberShop.name}

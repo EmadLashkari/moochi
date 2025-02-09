@@ -34,8 +34,8 @@ function ElectComp({ data }: ElectCompProps) {
         }}
       >
         <Image
-          width={1000}
-          height={1000}
+          width={300}
+          height={300}
           src="/images/barber-banner-img.jpg"
           style={{
             width: "100%",
