@@ -7,8 +7,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { top3Barbershops } from "@/utils/Data";
+import { barberData } from "@/utils/Data";
+import type { BarberShop } from "@/utils/Data";
 import { useEffect, useState } from "react";
+
+function getTopBarbershops(data: BarberShop[], topN: number = 3): BarberShop[] {
+  return data.sort((a, b) => b.rating - a.rating).slice(0, topN);
+}
+const top3Barbershops = getTopBarbershops(barberData);
 
 const Carousel = () => (
   <>
@@ -28,7 +34,7 @@ const Carousel = () => (
         width: "100%",
         height: "100%",
       }}
-      className="mySwiper mySwiperElect"
+      className="mySwiper elect--swiper"
       breakpoints={{
         0: {
           slidesPerView: 1,

@@ -1,130 +1,82 @@
 "use client";
 
-import { BoxColumn, BoxRow } from "@/utils/custom";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { SwiperOptions } from "swiper/types";
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import "swiper/css/pagination";
+import { Autoplay, Navigation } from "swiper/modules";
+import { EffectCreative } from "swiper/modules";
 
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { BoxColumn } from "@/utils/custom";
+
+// Sample slide content
 const slideContent = [
-  "/images/Banner-2.webp",
-  "/images/Banner-2.webp",
-  "/images/Banner-2.webp",
-  "/images/Banner-2.webp",
-  "/images/Banner-2.webp",
-  "/images/Banner-2.webp",
+  "/images/banner-2.webp",
+  "/images/banner-2.webp",
+  "/images/banner-2.webp",
+  "/images/banner-2.webp",
+  "/images/banner-2.webp",
+  "/images/banner-2.webp",
 ];
 
-const slidePerViewTopRight = {
-  0: {
-    slidesPerView: 1,
-  },
-};
-
-const slidePerViewTopLeft = {
-  0: {
-    slidesPerView: 1,
-  },
-  850: {
-    slidesPerView: 2,
-  },
-};
-
-const slidePerViewBottom = {
-  0: {
-    slidesPerView: 1,
-  },
-  850: {
-    slidesPerView: 2,
-  },
-  1300: {
-    slidesPerView: 3,
-  },
-};
-
 const boxStyle = {
-  boxShadow: "0 0 3px 0 rgba(0, 0, 0, 0.45)",
   width: "100%",
   height: "100%",
-  borderRadius: 1,
-  bgcolor: "background.default",
+  userSelect: "none,",
+  borderRadius: "25px",
+  boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.75)",
 };
 
-type slidePerViewConfig = {
-  [width: number]: SwiperOptions;
-  [ratio: string]: SwiperOptions;
-};
-
-type CarouselProps = {
-  direction?: "horizontal" | "vertical";
-  initialSlide: number;
-  className: string;
-  content: Array<string>;
-  slidePerView: slidePerViewConfig;
-  widthX: string;
-  heightX: string;
-  reverseDir?: true | false;
-};
-
-const Carousel: React.FC<CarouselProps> = ({
-  direction = "horizontal",
-  initialSlide,
-  className,
-  content,
-  slidePerView,
-  widthX,
-  heightX,
-  reverseDir = false,
-}) => (
+const Carousel = () => (
   <Swiper
-    allowTouchMove={false}
-    initialSlide={initialSlide}
-    loop={true}
     autoplay={{
       delay: 5000,
       disableOnInteraction: false,
-      reverseDirection: reverseDir,
     }}
-    pagination={false}
-    navigation={false}
-    modules={[Autoplay, Pagination, Navigation]}
-    className={`mySwiper ${className}`}
+    loop
+    slidesPerView={1.05}
+    centeredSlides
+    navigation
+    className="mySwiper banner--swiper"
     style={{
       width: "100%",
       height: "100%",
+      borderRadius: "25px",
+      direction: "ltr",
     }}
-    direction={direction}
-    breakpoints={slidePerView}
-    spaceBetween={16}
+    modules={[Autoplay, Navigation, EffectCreative]}
+    grabCursor={true}
+    effect={"creative"}
+    creativeEffect={{
+      prev: {
+        translate: ["-24%", 0, -400],
+      },
+      next: {
+        translate: ["24%", 0, -400],
+      },
+      progressMultiplier: 1,
+      shadowPerProgress: true,
+    }}
   >
-    {content.map((url, index) => (
-      <SwiperSlide
-        key={index}
-        style={{
-          minWidth: widthX,
-          minHeight: heightX,
-          borderRadius: "4px",
-        }}
-      >
-        <Box sx={boxStyle}>
+    {slideContent.map((url, index) => (
+      <SwiperSlide key={index}>
+        <Box sx={boxStyle} className="slide-content">
           <Image
-            width={1000}
-            height={1000}
+            width={10000}
+            height={10000}
             src={url}
-            alt={url}
+            alt={`Slide ${index}`}
             style={{
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              borderRadius: "4px",
+              borderRadius: "25px",
+              userSelect: "none",
             }}
             priority
-            quality={100}
           />
         </Box>
       </SwiperSlide>
@@ -132,8 +84,7 @@ const Carousel: React.FC<CarouselProps> = ({
   </Swiper>
 );
 
-function Banner() {
-  const width850 = useMediaQuery("only screen and (max-width : 850px)");
+export default function Banner() {
   const [domLoaded, setDomLoaded] = useState(false);
   useEffect(() => setDomLoaded(true), []);
 
@@ -141,91 +92,14 @@ function Banner() {
     <BoxColumn
       sx={{
         width: "100svw",
-        height: "calc(100svh - 70px)",
-        maxHeight: { xs: "932px", sm: "750px" },
-        minHeight: "650px",
-        p: 2,
-        gap: 2,
-        bgcolor: "primary.main",
+        height: "calc( 100svh - 70px )",
+        maxHeight: { xs: 300, sm: 400, md: 500, lg: 600, xl: 700 },
+        minHeight: { xs: 200, sm: 300, md: 400, lg: 500, xl: 600 },
+        bgcolor: "background.default",
+        userSelect: "none",
       }}
     >
-      {/* top */}
-      <BoxRow
-        sx={{
-          width: "100%",
-          height: "66%",
-          gap: 2,
-          "@media (max-width: 850px)": {
-            flexDirection: "column",
-            height: "66%",
-          },
-        }}
-      >
-        {/* top-right */}
-        <BoxColumn
-          sx={{
-            width: "calc(66% + 4px)",
-            height: "100%",
-            "@media (max-width: 850px)": {
-              width: "100%",
-            },
-          }}
-        >
-          <Carousel
-            direction={"horizontal"}
-            initialSlide={0}
-            className={"CarouselTopRight"}
-            content={slideContent}
-            slidePerView={slidePerViewTopRight}
-            widthX={width850 ? "100%" : "66%"}
-            heightX={"100%"}
-          />
-        </BoxColumn>
-        {/* top-left */}
-        <BoxColumn
-          sx={{
-            width: "33%",
-            height: "100%",
-            gap: 2,
-            "@media (max-width: 850px)": {
-              height: "50%",
-              width: "100%",
-            },
-          }}
-        >
-          <Carousel
-            direction={"vertical"}
-            initialSlide={1}
-            className={"CarouselTopLeft"}
-            content={slideContent}
-            slidePerView={slidePerViewTopLeft}
-            widthX={"100%"}
-            heightX={"calc(50% - 8px)"}
-          />
-        </BoxColumn>
-      </BoxRow>
-      {/* bottom */}
-      <BoxRow
-        sx={{
-          width: "100%",
-          height: "33%",
-          gap: 2,
-        }}
-      >
-        {domLoaded && (
-          <Carousel
-            direction={"horizontal"}
-            initialSlide={3}
-            className={"CarouselBottom"}
-            content={slideContent}
-            slidePerView={slidePerViewBottom}
-            widthX={"calc(33% - 8px)"}
-            heightX={"100%"}
-          />
-        )}
-      </BoxRow>
+      {domLoaded && <Carousel />}
     </BoxColumn>
   );
 }
-
-export default Banner;

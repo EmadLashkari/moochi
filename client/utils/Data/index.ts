@@ -149,11 +149,5 @@ const barberData: BarberShop[] = [
   },
 ];
 
-function getTopBarbershops(data: BarberShop[], topN: number = 3): BarberShop[] {
-  return data.sort((a, b) => b.rating - a.rating).slice(0, topN);
-}
-
-const top3Barbershops = getTopBarbershops(barberData);
-
-export { top3Barbershops };
+export { barberData };
 export type { BarberShop };

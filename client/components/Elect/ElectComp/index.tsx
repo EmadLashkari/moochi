@@ -15,6 +15,7 @@ function ElectComp({ data }: ElectCompProps) {
         minHeight: "100%",
         width: "100%",
         minWidth: "100%",
+        maxWidth: "500px",
         borderRadius: 3,
         boxShadow: "0 0 3px 0 rgba(0, 0, 0, 0.45)",
         justifyContent: "space-between",

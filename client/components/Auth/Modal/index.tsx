@@ -6,10 +6,13 @@ import {
   Button,
   TextField,
   InputAdornment,
-  Divider,
+  // Divider,
 } from "@mui/material";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import GoogleIcon from "@mui/icons-material/Google";
+
+import {
+  AccountCircleOutlined as AccountCircleOutlinedIcon,
+  // Google as GoogleIcon,
+} from "@mui/icons-material";
 
 interface LoginModalProps {
   openLoginModal: boolean;
@@ -111,7 +114,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
                   </Typography>
                 </Button>
               </form>
-              <Divider sx={{ p: 2 }}>
+              {/* <Divider sx={{ p: 2 }}>
                 <Typography variant="body1" color="text.primary">
                   یا
                 </Typography>
@@ -122,10 +125,10 @@ const LoginModal: React.FC<LoginModalProps> = ({
                 sx={{ borderRadius: 5 }}
                 startIcon={<GoogleIcon />}
               >
-                <Typography variant="h6" color="#fff">
+                <Typography variant="body1" color="text.default">
                   ورود با حساب کاربری گوگل
                 </Typography>
-              </Button>
+              </Button> */}
             </BoxColumn>
           </BoxColumn>
 

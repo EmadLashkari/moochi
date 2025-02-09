@@ -1,12 +1,7 @@
 "use client";
-import { createTheme } from "@mui/material/styles";
-import localFont from "next/font/local";
 
-const yekan = localFont({
-  src: "./../public/fonts/Far_Yekan.ttf",
-  variable: "--font-yekan",
-  weight: "100 200 300 400 500 600 700 800 900",
-});
+import { createTheme } from "@mui/material/styles";
+import { yekan } from "@/styles/fonts";
 
 const commonColors = {
   charcoalGray: "#333333",
