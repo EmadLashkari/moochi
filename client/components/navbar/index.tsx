@@ -34,7 +34,7 @@ function Navbar() {
           <Image
             width={250}
             height={68}
-            src="/images/HerCut.svg"
+            src="/images/hercut.svg"
             alt="HerCutLogo"
             priority
           />

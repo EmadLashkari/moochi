@@ -152,7 +152,7 @@ const FooterLeft = () => (
       <Image
         width={200}
         height={200}
-        src={"/images/Enamad.png"}
+        src={"/images/enamad.png"}
         alt="enamad"
         style={{ width: "100%", height: "100%", maxHeight: 122 }}
       />

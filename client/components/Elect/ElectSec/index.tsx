@@ -9,8 +9,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { barberData } from "@/utils/Data";
-import type { BarberShop } from "@/utils/Data";
+import { barberData } from "@/utils/data";
+import type { BarberShop } from "@/utils/data";
 
 // Function to get top 3 barbershops
 function getTopBarbershops(data: BarberShop[], topN: number = 3): BarberShop[] {
@@ -21,7 +21,6 @@ const top3Barbershops = getTopBarbershops(barberData);
 const Carousel = () => (
   <>
     <Swiper
-      loop={true}
       spaceBetween={48}
       autoplay={{ delay: 3000, disableOnInteraction: false }}
       pagination={{ clickable: true }}
@@ -30,9 +29,9 @@ const Carousel = () => (
       style={{ width: "100%", height: "100%" }}
       className="mySwiper elect--swiper"
       breakpoints={{
-        0: { slidesPerView: 1 },
-        850: { slidesPerView: 2 },
-        1300: { slidesPerView: 3 },
+        0: { slidesPerView: 1, loop: true },
+        850: { slidesPerView: 2, loop: true },
+        1300: { slidesPerView: 3, loop: false },
       }}
     >
       <SwiperSlide style={{ minWidth: "calc(33% - 32px)" }}>

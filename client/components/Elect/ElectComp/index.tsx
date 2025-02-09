@@ -1,8 +1,8 @@
 import { BoxColumn, BoxRow } from "@/utils/custom";
-import { Box, Button, Skeleton, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import ElectItem from "../ElectItem";
-import { BarberShop } from "@/utils/Data";
-// import Image from "next/image";
+import { BarberShop } from "@/utils/data";
+import Image from "next/image";
 interface ElectCompProps {
   data: BarberShop[];
 }
@@ -33,7 +33,7 @@ function ElectComp({ data }: ElectCompProps) {
           borderTopRightRadius: "12px",
         }}
       >
-        {/* <Image
+        <Image
           width={1000}
           height={1000}
           src="/images/barber-banner-img.jpg"
@@ -46,14 +46,14 @@ function ElectComp({ data }: ElectCompProps) {
           }}
           alt="barber-banner-img"
           priority
-        /> */}
-        <Skeleton
+        />
+        {/* <Skeleton
           variant="rectangular"
           width={"100%"}
           height={"100%"}
           animation="wave"
           sx={{ borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }}
-        />
+        /> */}
       </Box>
       <BoxRow sx={{ p: 1.5 }}>
         <Typography variant="h6" color="white">

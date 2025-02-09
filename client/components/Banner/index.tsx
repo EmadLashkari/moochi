@@ -14,12 +14,12 @@ import { BoxColumn } from "@/utils/custom";
 
 // Sample slide content
 const slideContent = [
-  "/images/banner-2.webp",
-  "/images/banner-2.webp",
-  "/images/banner-2.webp",
-  "/images/banner-2.webp",
-  "/images/banner-2.webp",
-  "/images/banner-2.webp",
+  "/images/banner-1.webp",
+  "/images/banner-1.webp",
+  "/images/banner-1.webp",
+  "/images/banner-1.webp",
+  "/images/banner-1.webp",
+  "/images/banner-1.webp",
 ];
 
 const boxStyle = {
