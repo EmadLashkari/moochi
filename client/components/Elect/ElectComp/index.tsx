@@ -36,7 +36,6 @@ function ElectComp({ data }: ElectCompProps) {
         <Image
           width={300}
           height={300}
-          src="/images/barber-banner-img.jpg"
           style={{
             width: "100%",
             height: "100%",
@@ -44,6 +43,7 @@ function ElectComp({ data }: ElectCompProps) {
             borderTopRightRadius: "12px",
             objectFit: "cover",
           }}
+          src={"/images/barber-banner-img.jpg"}
           alt="barber-banner-img"
           priority
         />
