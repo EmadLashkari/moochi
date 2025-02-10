@@ -43,7 +43,7 @@ function ElectComp({ data }: ElectCompProps) {
             borderTopRightRadius: "12px",
             objectFit: "cover",
           }}
-          src={"/images/barber-banner-img.jpg"}
+          src="/images/bbi.jpg"
           alt="barber-banner-img"
           priority
         />

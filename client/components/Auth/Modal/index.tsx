@@ -40,6 +40,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
           transform: "translate(-50%, -50%)",
           width: { xs: "90svw", sm: 450 },
           height: "80svh",
+          minHeight: "600px",
           bgcolor: "background.paper",
           boxShadow: 24,
           p: 4,
