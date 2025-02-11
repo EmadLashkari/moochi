@@ -41,6 +41,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
           width: { xs: "90svw", sm: 450 },
           height: "80svh",
           minHeight: "600px",
+          maxHeight: "800px",
           bgcolor: "background.paper",
           boxShadow: 24,
           p: 4,
